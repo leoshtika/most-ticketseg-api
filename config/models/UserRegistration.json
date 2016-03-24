@@ -1,0 +1,86 @@
+{"name": "UserRegistration", "id": 6918713, "title": "User Registrations", "hidden": false, "inherits":"Action", "sealed": false, "abstract": false, "version": "1.2", "fields": [
+  {
+    "name": "id",
+    "title": "Id",
+    "type": "Integer",
+    "nullable": false,
+    "primary": true
+  },
+
+  {
+    "name": "familyName",
+    "title": "Family Name",
+    "description": "Family name.",
+    "type": "Text",
+    "size":255
+  },
+  {
+    "name": "givenName",
+    "title": "Given Name",
+    "description": "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the Name property.",
+    "type": "Text",
+    "size":255
+  },
+  {
+    "name": "gender",
+    "title": "Gender",
+    "description": "Gender of the person.",
+    "type": "Text",
+    "size":20
+  },
+  {
+    "name": "birthDate",
+    "title": "Birth Date",
+    "description": "Date of birth.",
+    "type": "DateTime"
+  },
+  {
+    "name": "email",
+    "title": "Email Address",
+    "description": "An email address associated with this item.",
+    "type": "Text",
+    "size": 120
+  },
+  {
+    "name" : "phone",
+    "title": "Phone Number",
+    "description" : "User's phone number",
+    "type":"Text",
+    "size" : 24
+  },
+  {
+    "name": "additionalType",
+    "title": "Additional Type",
+    "description": "An additional type for the item, typically used for adding more specific types from external vocabularies in microdata syntax. This is a relationship between something and a class that the thing is in. In RDFa syntax, it is better to use the native RDFa syntax - the 'typeof' attribute - for multiple types. Schema.org tools may have only weaker understanding of extra types, in particular those defined externally.",
+    "type": "Text",
+    "value":"javascript:return this.model.name"
+  },
+  {
+    "name": "startTime",
+    "title": "Start Time",
+    "description": "When the Action was performed: start time. This is for actions that span a period of time.",
+    "type": "DateTime",
+    "value":"javascript:return (new Date());",
+    "nullable":false
+  },
+  {
+    "name": "endTime",
+    "title": "End Time",
+    "description": "The endTime of something. This is for actions that span a period of time.",
+    "type": "DateTime",
+    "value":"javascript:return moment(this.target.validFrom).subtract(-1440,'minutes').toDate();"
+  },
+  {
+    "name": "actionStatus",
+    "title": "Action Status",
+    "description": "Indicates the current disposition of the Action.",
+    "type": "ActionStatusType",
+    "value":"javascript:return 2;"
+  }
+
+], "eventListeners": [
+  { "name":"Previous State Listener", "type":"most-data/previous-state-listener" },
+  { "name":"New User Registration Listener", "type":"get-cash-core/listeners/user-registration-listener" }
+],"privileges":[
+  { "mask":15, "type":"global" }
+]}
