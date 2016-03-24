@@ -101,8 +101,6 @@
 ], "eventListeners": [
     { "name":"Person User Provider", "type":"/app/controllers/person-user-listener.js" }
 ],"privileges":[
-    { "mask":1, "type":"global", "account":"*" },
-    { "mask":15, "type":"global" },
-    { "mask":4, "type":"self", "filter":"id eq person()" }
+    { "mask":15, "type":"global" }
     
 ]}
